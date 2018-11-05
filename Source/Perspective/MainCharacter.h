@@ -4,6 +4,7 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Character.h"
+#include "GameFramework/SpringArmComponent.h"
 #include "MainCharacter.generated.h"
 
 UCLASS()
@@ -12,11 +13,12 @@ class PERSPECTIVE_API AMainCharacter : public ACharacter
 	GENERATED_BODY()
 
 private:
-	void HandleJump();
 
 public:
 	// Sets default values for this character's properties
 	AMainCharacter();
+
+	USpringArmComponent* GetSpringArm();
 
 protected:
 	// Called when the game starts or when spawned
@@ -29,6 +31,7 @@ public:
 	// Called to bind functionality to input
 	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
 
-	
+	void HandleJump();
+
 	
 };
